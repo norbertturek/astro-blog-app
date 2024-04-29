@@ -1,0 +1,42 @@
+---
+// component imports
+import Link from './Link.astro';
+
+// utils imports
+import { formatDate } from '../js/utils';
+
+const { frontmatter, url, tagType } = Astro.props;
+
+const Tag = tagType;
+
+const { title, date, author, image, description, category } = frontmatter;
+---
+
+<article class="card mx-auto max-w-screen-lg">
+  <a href={url} aria-hidden="true">
+    <img
+      class="w-full rounded-md object-cover"
+      src={image.src}
+      alt={image.alt}
+      width="400"
+      height="250"
+    />
+
+    <div class="mt-4">
+      <small class="text-blue-400 uppercase tracking-wider text-xs font-medium">
+        {category}
+      </small>
+    </div>
+
+    <div class="content">
+      <Tag class="h3 text-xl font-semibold leading-snug tracking-tight mt-1">
+        {title}
+      </Tag>
+      <small class="flex gap-2 mt-3 text-sm text-gray-400">
+        {author} • {formatDate(date)}
+      </small>
+      <p class="mt-4">{description}</p>
+      <Link href={url} text="Read Post" style="secondary" />
+    </div>
+  </a>
+</article>

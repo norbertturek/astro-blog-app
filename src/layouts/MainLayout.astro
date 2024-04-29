@@ -1,0 +1,55 @@
+---
+// component import
+import MainHead from "./MainHead.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+
+const {
+  title = "My Astro Blog",
+  description = "My musings about the Astro framework",
+  image,
+  frontmatter,
+  robots,
+} = Astro.props;
+---
+
+<style is:global>
+    p {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+
+    ul {
+        list-style-type: disc;
+        margin-bottom: 1.25em;
+        padding-left: 1.625em;
+        li {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+        }
+        li::marker {
+            color: #d1d5db;
+        }
+    }
+</style>
+
+<html lang="en">
+  <MainHead {title} {description} {image} {frontmatter} {robots} />
+  <body>
+    <Nav />
+    <main >
+      <slot> Default Text</slot>
+    </main>
+    <Footer />
+  </body>
+</html>

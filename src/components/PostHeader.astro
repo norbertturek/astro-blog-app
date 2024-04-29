@@ -1,0 +1,29 @@
+---
+// utils imports
+import { slugify, formatDate } from '../js/utils';
+
+const { category, title, author, date, image } = Astro.props;
+---
+
+<header class="max-w-screen-xl mx-auto px-5">
+  <div class="mx-auto max-w-3xl text-center mt-14">
+    <div class="mt-4">
+      <small class="text-blue-400 uppercase tracking-wider text-xs font-medium">
+        <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+      </small>
+    </div>
+    <h1 class="text-3xl lg:text-4xl font-bold lg:tracking-tight mt-1 lg:leading-tight">{title}</h1>
+    <p class="flex gap-2 mt-3 items-center justify-center text-sm flex-wrap md:flex-nowrap text-gray-400">
+      {author} • {formatDate(date)}
+    </p>
+  </div>
+  <div class="mx-auto max-w-4xl">
+    <img
+      src={image.src}
+      alt={image.alt}
+      width="1200"
+      height="600"
+      class="h-full w-full object-contain rounded-xl mt-6"
+    />
+  </div>
+</header>

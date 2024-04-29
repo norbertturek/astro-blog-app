@@ -1,0 +1,18 @@
+<footer class="mt-14 pt-8 py-14 px-5 border-t border-slate-200 bg-slate-100">
+  <div class="max-w-screen-xl mx-auto px-5 flex flex-col">
+    <small class="text-center text-sm text-slate-600 [text-wrap:balance]">
+      Copyright &copy; <span id="copyright"></span> | All rights reserved
+    </small>
+    <small class="text-center text-xs text-slate-600 mt-2">
+      <a href="/rss.xml">
+        Subscribe to RSS
+      </a>
+    </small>
+  </div>
+</footer>
+
+<script>
+  document.querySelector("#copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>
